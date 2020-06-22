@@ -16,3 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::prefix('admin')->group(function(){
+   Route::get('/','IndexController@index');
+    Route::any('/nav','IndexController@nav');
+    Route::any('/addnav','IndexController@addnav');
+    Route::any('/shownav','IndexController@shownav');
+    Route::any('/delnav','IndexController@delnav');
+    Route::any('/updnav/{id}','IndexController@updnav');
+    Route::any('/editnav/{id}','IndexController@editnav');
+    Route::any('/editsorts','IndexController@editsorts');
+    Route::any('/edithidden','IndexController@edithidden');
+});
